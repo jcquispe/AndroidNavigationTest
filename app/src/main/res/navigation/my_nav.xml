@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/cotizacionFragment">
+
+    <fragment
+        android:id="@+id/cotizacionFragment"
+        android:name="com.example.test.CotizacionFragment"
+        android:label="fragment_cotizacion"
+        tools:layout="@layout/fragment_cotizacion" >
+        <action
+            android:id="@+id/cotizationToRegistro"
+            app:destination="@id/registroFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/registroFragment"
+        android:name="com.example.test.RegistroFragment"
+        android:label="fragment_registro"
+        tools:layout="@layout/fragment_registro" >
+        <action
+            android:id="@+id/registroToCotizacion"
+            app:destination="@id/cotizacionFragment"
+            app:enterAnim="@anim/nav_default_pop_exit_anim"
+            app:exitAnim="@anim/nav_default_pop_enter_anim" />
+    </fragment>
+</navigation>
