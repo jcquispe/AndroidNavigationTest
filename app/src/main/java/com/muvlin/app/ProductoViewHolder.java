@@ -28,7 +28,6 @@ public class ProductoViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind(String codigo, String descripcion, Integer cantidad, Double costo, Double precio) {
-        Double total = 0.0;
         textCodigo.setText("COD: " + codigo);
         textDescripcion.setText(descripcion);
         textCantidad.setText(String.valueOf(cantidad));

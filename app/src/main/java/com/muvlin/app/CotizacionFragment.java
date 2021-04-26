@@ -38,6 +38,7 @@ public class CotizacionFragment extends Fragment {
     public static final String MyPREFERENCES = "MySettings" ;
     public static final String Margen = "margenKey";
     SharedPreferences sharedpreferences;
+    Double total = 0.0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,6 +54,12 @@ public class CotizacionFragment extends Fragment {
 
         mProductoViewModel = new ViewModelProvider(getActivity()).get(ProductoViewModel.class);
         mProductoViewModel.getAllProductos().observe(getActivity(), productos -> {
+            total = 0.0;
+            for(Producto p: productos) {
+                Calculos calculos = new Calculos();
+                Double precio = calculos.calculaPrecio(p.getCosto(), getMargen());
+                total += p.getCantidad() * precio;
+            }
             adapter.submitList(productos);
         });
 
@@ -77,7 +84,9 @@ public class CotizacionFragment extends Fragment {
         optGenerar.setOnClickListener( v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder.setTitle("TOTAL");
-            builder.setMessage("Funcionalidad en desarrollo...");
+            Double totalRedondeado = Math.round((total) * 100.0) / 100.0;
+            Double comision = Math.round((totalRedondeado * 0.05) * 100.0) / 100.0;
+            builder.setMessage("Costo para el cliente " + totalRedondeado +" Bs.\nMargen de cotización " + SharedPreferencesManager.getInstance().getMargen() + "%\nComisión " + comision + " Bs.");
             builder.setPositiveButton("OK", null);
             AlertDialog dialog = builder.create();
             dialog.show();
