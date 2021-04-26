@@ -50,11 +50,6 @@ public abstract class AppDatabase extends RoomDatabase {
                 // If you want to start with more words, just add them.
                 ProductoDao dao = INSTANCE.productoDao();
                 dao.deleteAll();
-
-                Producto producto = new Producto("123", "CAMARAS DE SEGURIDAD", 2, 123.5);
-                dao.insert(producto);
-                producto = new Producto("456", "DVR DE 8 CANALES", 1, 489.25);
-                dao.insert(producto);
             });
         }
     };

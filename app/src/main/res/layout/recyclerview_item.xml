@@ -18,27 +18,29 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="68"
+                android:layout_weight="60"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textCodigo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="CODIGO"/>
+                    android:text="CODIGO"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/textDescripcion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     android:text="DESCRIPCION"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="12"
+                android:layout_weight="10"
                 android:orientation="vertical"
                 android:layout_gravity="center">
 
@@ -54,17 +56,32 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="20"
+                android:layout_weight="15"
                 android:orientation="vertical"
                 android:layout_gravity="center">
 
                 <TextView
-                    android:id="@+id/textCosto"
+                    android:id="@+id/textUnitario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:text="101.4"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:orientation="vertical"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/textPrecio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="textEnd"
                     android:textStyle="bold"
-                    android:textSize="16sp"
                     android:text="101.4"/>
 
             </LinearLayout>

@@ -22,7 +22,7 @@ public class ProductoListAdapter extends ListAdapter<Producto, ProductoViewHolde
     @Override
     public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
         Producto current = getItem(position);
-        holder.bind(current.getCodigo(), current.getDescripcion(), current.getCantidad(), current.getCosto());
+        holder.bind(current.getCodigo(), current.getDescripcion(), current.getCantidad(), current.getCosto(), current.getPrecio());
     }
 
     public static class ProductoDiff extends DiffUtil.ItemCallback<Producto> {

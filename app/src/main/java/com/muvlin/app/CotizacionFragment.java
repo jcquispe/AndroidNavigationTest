@@ -1,9 +1,13 @@
 package com.muvlin.app;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -11,8 +15,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.muvlin.app.R;
@@ -28,7 +35,9 @@ public class CotizacionFragment extends Fragment {
 
     private FabOption optManual, optListado, optGenerar;
     private ProductoViewModel mProductoViewModel;
-    public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
+    public static final String MyPREFERENCES = "MySettings" ;
+    public static final String Margen = "margenKey";
+    SharedPreferences sharedpreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,6 +49,8 @@ public class CotizacionFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        sharedpreferences = getActivity().getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
         mProductoViewModel = new ViewModelProvider(getActivity()).get(ProductoViewModel.class);
         mProductoViewModel.getAllProductos().observe(getActivity(), productos -> {
             adapter.submitList(productos);
@@ -50,31 +61,32 @@ public class CotizacionFragment extends Fragment {
             String descripcion = getArguments().getString("DESCRIPCION");
             Integer cantidad = getArguments().getInt("CANTIDAD");
             Double costo = getArguments().getDouble("COSTO");
-            Producto producto = new Producto(codigo, descripcion,cantidad,costo);
+            Calculos calcular = new Calculos();
+            Double precio = calcular.calculaPrecio(costo, getMargen());
+            Producto producto = new Producto(codigo,descripcion,cantidad,costo,precio);
             mProductoViewModel.insert(producto);
         } catch(Exception e) {
             e.printStackTrace();
         }
 
         optManual = view.findViewById(R.id.optManual);
+        optGenerar = view.findViewById(R.id.optGenerar);
         optManual.setOnClickListener( v -> {
-                Navigation.findNavController(view).navigate(R.id.cotizationToRegistro);
+            Navigation.findNavController(view).navigate(R.id.cotizationToRegistro);
+        });
+        optGenerar.setOnClickListener( v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            builder.setTitle("TOTAL");
+            builder.setMessage("Funcionalidad en desarrollo...");
+            builder.setPositiveButton("OK", null);
+            AlertDialog dialog = builder.create();
+            dialog.show();
         });
 
         return view;
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Producto producto = new Producto(data.getStringExtra("CODIGO"),
-                    data.getStringExtra("DESCRIPCION"),
-                    data.getIntExtra("CANTIDAD", 1),
-                    data.getDoubleExtra("COSTO", 0));
-            mProductoViewModel.insert(producto);
-        } else {
-            Toast.makeText(getContext(), "ERROR", Toast.LENGTH_LONG).show();
-        }
+    private Float getMargen() {
+        return sharedpreferences.getFloat(Margen, 0);
     }
 }

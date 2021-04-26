@@ -16,8 +16,8 @@ public interface ProductoDao {
     @Query("SELECT * FROM producto")
     LiveData<List<Producto>> getAll();
 
-    @Query("SELECT * FROM producto WHERE pid IN (:productoIds)")
-    List<Producto> loadAllByIds(Integer[] productoIds);
+    @Query("SELECT * FROM producto")
+    List<Producto> listAll();
 
     @Query("SELECT * FROM producto WHERE descripcion LIKE :descripcion LIMIT 1")
     Producto findByDescripcion(String descripcion);

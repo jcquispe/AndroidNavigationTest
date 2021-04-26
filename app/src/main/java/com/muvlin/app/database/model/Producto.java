@@ -17,12 +17,15 @@ public class Producto {
     private Integer cantidad;
     @ColumnInfo(name = "costo")
     private Double costo;
+    @ColumnInfo(name = "precio")
+    private Double precio;
 
-    public Producto(@NonNull String codigo, @NonNull String descripcion, @NonNull Integer cantidad, @NonNull Double costo) {
+    public Producto(@NonNull String codigo, @NonNull String descripcion, @NonNull Integer cantidad, @NonNull Double costo, @NonNull Double precio) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.cantidad = cantidad;
         this.costo = costo;
+        this.precio = precio;
     }
 
     public Integer getPid() {
@@ -47,6 +50,10 @@ public class Producto {
 
     public Double getCosto() {
         return costo;
+    }
+
+    public Double getPrecio() {
+        return precio;
     }
 }
 

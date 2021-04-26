@@ -19,17 +19,29 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="68"
+            android:layout_weight="60"
             android:padding="2dp"
-            android:text="PRODUCTO"
+            android:text="Producto"
             android:background="@color/colorAccent"
             android:textColor="@color/blanco"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="12"
-            android:text="CANT"
+            android:layout_weight="10"
+            android:text="Cant"
+            android:padding="2dp"
+            android:textSize="12sp"
+            android:textAlignment="textEnd"
+            android:background="@color/colorAccent"
+            android:textColor="@color/blanco"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="Uni"
+            android:textSize="12sp"
             android:padding="2dp"
             android:textAlignment="textEnd"
             android:background="@color/colorAccent"
@@ -38,9 +50,10 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:text="PRECIO"
+            android:layout_weight="15"
+            android:text="Total"
             android:padding="2dp"
+            android:textSize="12sp"
             android:textAlignment="textEnd"
             android:background="@color/colorAccent"
             android:textColor="@color/blanco"/>
@@ -55,6 +68,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:listitem="@layout/recyclerview_item"/>
+
 
     <!-- This is NOT a root view, but should be a child of whatever root view you choose (CoordinatorLayout, ConstraintLayout, etc) -->
     <com.nambimobile.widgets.efab.ExpandableFabLayout
@@ -81,13 +95,13 @@
             android:layout_height="wrap_content"
             app:fab_orientation="portrait"
             app:label_text="Item manualmente"/>
-        <com.nambimobile.widgets.efab.FabOption
+        <!--<com.nambimobile.widgets.efab.FabOption
             android:id="@+id/optListado"
             app:fab_icon="@drawable/ic_find_in_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_orientation="portrait"
-            app:label_text="Item desde listado"/>
+            app:label_text="Item desde listado"/>-->
         <com.nambimobile.widgets.efab.FabOption
             android:id="@+id/optGenerar"
             app:fab_icon="@drawable/ic_assignment"

@@ -15,21 +15,27 @@ public class ProductoViewHolder extends RecyclerView.ViewHolder {
     private final TextView textDescripcion;
     private final TextView textCodigo;
     private final TextView textCantidad;
-    private final TextView textCosto;
+    private final TextView textUnitario;
+    private final TextView textPrecio;
 
     public ProductoViewHolder(@NonNull View itemView) {
         super(itemView);
         textCodigo = itemView.findViewById(R.id.textCodigo);
         textDescripcion = itemView.findViewById(R.id.textDescripcion);
         textCantidad = itemView.findViewById(R.id.textCantidad);
-        textCosto = itemView.findViewById(R.id.textCosto);
+        textUnitario = itemView.findViewById(R.id.textUnitario);
+        textPrecio = itemView.findViewById(R.id.textPrecio);
     }
 
-    public void bind(String codigo, String descripcion, Integer cantidad, Double costo) {
-        textCodigo.setText(codigo);
+    public void bind(String codigo, String descripcion, Integer cantidad, Double costo, Double precio) {
+        Double total = 0.0;
+        textCodigo.setText("COD: " + codigo);
         textDescripcion.setText(descripcion);
         textCantidad.setText(String.valueOf(cantidad));
-        textCosto.setText(String.valueOf(costo));
+        Calculos calcular = new Calculos();
+        Double p = calcular.calculaPrecio(costo, SharedPreferencesManager.getInstance().getMargen());
+        textUnitario.setText(String.valueOf(p));
+        textPrecio.setText(String.valueOf(Math.round((p * cantidad) * 100.0) / 100.0));
     }
 
     public static ProductoViewHolder create(ViewGroup parent) {

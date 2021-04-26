@@ -2,6 +2,7 @@ package com.muvlin.app;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -20,6 +21,7 @@ public class RegistroFragment extends Fragment {
 
     private EditText editTextCodigo, editTextDescripcion, editTextCantidad, editTextCosto;
     private Button buttonRegistrar;
+    Util util;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,13 +34,28 @@ public class RegistroFragment extends Fragment {
         buttonRegistrar = view.findViewById(R.id.buttonRegistrar);
 
         buttonRegistrar.setOnClickListener(v -> {
-            Bundle i = new Bundle();
-            i.putString("CODIGO", editTextCodigo.getText().toString().trim());
-            i.putString("DESCRIPCION", editTextDescripcion.getText().toString().trim());
-            i.putInt("CANTIDAD", Integer.parseInt(editTextCantidad.getText().toString().trim()));
-            i.putDouble("COSTO", Double.parseDouble(editTextCosto.getText().toString().trim()));
+            String cod = editTextCodigo.getText().toString().trim();
+            String des = editTextDescripcion.getText().toString().trim();
+            String can = editTextCantidad.getText().toString().trim();
+            String cos = editTextCosto.getText().toString().trim();
 
-            Navigation.findNavController(view).navigate(R.id.registroToCotizacion, i);
+            if (cod.equals("") || des.equals("") || can.equals("") || cos.equals("")) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("ATENCIÓN");
+                builder.setMessage("Todos los campos son requeridos");
+                builder.setPositiveButton("OK", null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+            else {
+                Bundle i = new Bundle();
+                i.putString("CODIGO", cod);
+                i.putString("DESCRIPCION", des);
+                i.putInt("CANTIDAD", Integer.parseInt(can));
+                i.putDouble("COSTO", Double.parseDouble(cos));
+
+                Navigation.findNavController(view).navigate(R.id.registroToCotizacion, i);
+            }
 
             /*Intent replyIntent = new Intent();
             replyIntent.putExtra("CODIGO", editTextCodigo.getText().toString().trim());
