@@ -1,4 +1,4 @@
-package com.example.test.database.dao;
+package com.muvlin.app.database.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -7,7 +7,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.test.database.model.Producto;
+import com.muvlin.app.database.model.Producto;
 
 import java.util.List;
 

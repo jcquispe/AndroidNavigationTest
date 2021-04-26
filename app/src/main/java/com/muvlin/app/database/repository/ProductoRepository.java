@@ -1,12 +1,12 @@
-package com.example.test.database.repository;
+package com.muvlin.app.database.repository;
 
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.test.database.AppDatabase;
-import com.example.test.database.dao.ProductoDao;
-import com.example.test.database.model.Producto;
+import com.muvlin.app.database.AppDatabase;
+import com.muvlin.app.database.dao.ProductoDao;
+import com.muvlin.app.database.model.Producto;
 
 import java.util.List;
 

@@ -1,12 +1,10 @@
-package com.example.test;
+package com.muvlin.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
-import com.nambimobile.widgets.efab.FabOption;
+import com.muvlin.app.R;
 
 public class MainActivity extends AppCompatActivity {
 

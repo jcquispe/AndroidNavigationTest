@@ -1,4 +1,4 @@
-package com.example.test;
+package com.muvlin.app;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,14 +10,13 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.test.database.model.Producto;
-import com.google.android.material.navigation.NavigationView;
+import com.muvlin.app.R;
+import com.muvlin.app.database.model.Producto;
 import com.nambimobile.widgets.efab.FabOption;
 
 import static android.app.Activity.RESULT_OK;

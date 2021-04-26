@@ -1,4 +1,4 @@
-package com.example.test;
+package com.muvlin.app;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.muvlin.app.R;
 
 public class ProductoViewHolder extends RecyclerView.ViewHolder {
 

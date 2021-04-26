@@ -1,4 +1,4 @@
-package com.example.test;
+package com.muvlin.app;
 
 import android.app.Application;
 
@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.test.database.model.Producto;
-import com.example.test.database.repository.ProductoRepository;
+import com.muvlin.app.database.model.Producto;
+import com.muvlin.app.database.repository.ProductoRepository;
 
 import java.util.List;
 

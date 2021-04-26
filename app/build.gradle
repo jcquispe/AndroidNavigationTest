@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.test"
+        applicationId "com.muvlin.app"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

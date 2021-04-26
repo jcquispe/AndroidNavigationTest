@@ -1,4 +1,4 @@
-package com.example.test.database.model;
+package com.muvlin.app.database.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
