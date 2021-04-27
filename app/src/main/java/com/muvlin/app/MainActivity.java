@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -13,12 +14,21 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.muvlin.app.R;
+import com.muvlin.app.database.AppDatabase;
+import com.muvlin.app.database.dao.ProductoDao;
+
+import java.util.concurrent.Executors;
+
+import io.reactivex.Maybe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String MyPREFERENCES = "MySettings" ;
     public static final String Margen = "margenKey";
     SharedPreferences sharedpreferences;
+    private ProductoViewModel mProductoViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         SharedPreferencesManager.getInstance().init(this);
 
+        mProductoViewModel = new ViewModelProvider(this).get(ProductoViewModel.class);
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         if (getMargen() == 0) {
             saveDefaultMargen();
@@ -45,7 +56,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.settings:
                 moveToSettings();
                 return true;
+            case R.id.clean:
+                deleteAll();
+                return true;
             case R.id.logout:
+                logout();
                 return true;
             default:
                 return false;
@@ -69,5 +84,14 @@ public class MainActivity extends AppCompatActivity {
 
     private Float getMargen() {
         return sharedpreferences.getFloat(Margen, 0);
+    }
+
+    public void deleteAll() {
+        mProductoViewModel.deleteAll();
+    }
+
+    private void logout() {
+        finish();
+        System.exit(0);
     }
 }

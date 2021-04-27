@@ -7,4 +7,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="textTitulo">Márgen de cotización</string>
+    <string name="copyright">2021 - Derechos reservados mulvin.com</string>
+
+    <string name="client_id">2</string>
+    <string name="client_secret">wBQdaWpR40UBIcOWFO8pILHEWFztU9OdZ9Y64vbi</string>
+    <string name="clean">Limpiar lista</string>
 </resources>

@@ -94,7 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:fab_orientation="portrait"
-            app:label_text="Item manualmente"/>
+            app:label_text="Agregar item"/>
         <!--<com.nambimobile.widgets.efab.FabOption
             android:id="@+id/optListado"
             app:fab_icon="@drawable/ic_find_in_page"

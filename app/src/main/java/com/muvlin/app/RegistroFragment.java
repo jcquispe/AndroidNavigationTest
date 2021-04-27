@@ -1,5 +1,6 @@
 package com.muvlin.app;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -9,10 +10,11 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.muvlin.app.R;
+import com.muvlin.app.util.Alert;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,7 +23,7 @@ public class RegistroFragment extends Fragment {
 
     private EditText editTextCodigo, editTextDescripcion, editTextCantidad, editTextCosto;
     private Button buttonRegistrar;
-    Util util;
+    Alert alert;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,6 +40,9 @@ public class RegistroFragment extends Fragment {
             String des = editTextDescripcion.getText().toString().trim();
             String can = editTextCantidad.getText().toString().trim();
             String cos = editTextCosto.getText().toString().trim();
+
+            final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
 
             if (cod.equals("") || des.equals("") || can.equals("") || cos.equals("")) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());

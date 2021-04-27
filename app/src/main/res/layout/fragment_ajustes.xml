@@ -50,8 +50,7 @@
                     android:id="@+id/editTextMargen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textAlignment="textEnd"
+                    android:inputType="phone"
                     android:hint="Márgen" />
             </com.google.android.material.textfield.TextInputLayout>
 

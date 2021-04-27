@@ -28,4 +28,8 @@ public class ProductoViewModel extends AndroidViewModel {
     public void insert(Producto producto) {
         mRepository.insert(producto);
     }
+
+    public void deleteAll() {
+        mRepository.deleteAll();
+    }
 }

@@ -32,13 +32,9 @@ public class ProductoRepository {
         });
     }
 
-    public Double getTotal(){
-        Double total = 0.0;
-        List<Producto>  listAllProducto = productoDao.listAll();
-        for (Producto p: listAllProducto) {
-            Calculos calcular = new Calculos();
-            total += calcular.calculaPrecio(p.getCosto(), SharedPreferencesManager.getInstance().getMargen());;
-        }
-        return total;
+    public void deleteAll() {
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            productoDao.deleteAll();
+        });
     }
 }

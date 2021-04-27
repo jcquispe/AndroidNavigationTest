@@ -13,6 +13,8 @@
         <action
             android:id="@+id/cotizationToRegistro"
             app:destination="@id/registroFragment"
+            app:popUpTo="@id/cotizacionFragment"
+            app:popUpToInclusive="true"
             app:enterAnim="@anim/nav_default_pop_enter_anim"
             app:exitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>

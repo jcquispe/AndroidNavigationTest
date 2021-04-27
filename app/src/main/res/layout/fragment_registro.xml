@@ -46,6 +46,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapCharacters"
+                        android:imeOptions="actionNext"
                         android:hint="Código" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -59,6 +60,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapCharacters"
+                        android:imeOptions="actionNext"
                         android:hint="Descripción" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,6 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="number"
+                        android:imeOptions="actionNext"
                         android:hint="Cantidad" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,6 +88,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="phone"
+                        android:imeOptions="actionDone"
                         android:hint="Costo" />
                 </com.google.android.material.textfield.TextInputLayout>
 
