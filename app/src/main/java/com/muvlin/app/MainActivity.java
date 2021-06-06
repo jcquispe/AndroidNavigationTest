@@ -2,9 +2,11 @@ package com.muvlin.app;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -53,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.generate:
+                moveToGenerate();
+                return true;
             case R.id.settings:
                 moveToSettings();
                 return true;
@@ -65,6 +70,15 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return false;
         }
+    }
+
+    private void moveToGenerate() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.fragment, ReportFragment.class, null);
+        transaction.addToBackStack("Volver");
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        transaction.commit();
     }
 
     private void moveToSettings() {

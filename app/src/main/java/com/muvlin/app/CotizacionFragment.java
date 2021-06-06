@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.muvlin.app.R;
 import com.muvlin.app.database.model.Producto;
 import com.nambimobile.widgets.efab.FabOption;
@@ -25,7 +26,8 @@ import com.nambimobile.widgets.efab.FabOption;
  */
 public class CotizacionFragment extends Fragment {
 
-    private FabOption optManual, optListado, optGenerar;
+    //private FabOption optManual, optListado, optGenerar;
+    private FloatingActionButton optManual;
     private ProductoViewModel mProductoViewModel;
     public static final String MyPREFERENCES = "MySettings" ;
     public static final String Margen = "margenKey";
@@ -69,11 +71,11 @@ public class CotizacionFragment extends Fragment {
         }
 
         optManual = view.findViewById(R.id.optManual);
-        optGenerar = view.findViewById(R.id.optGenerar);
+        //optGenerar = view.findViewById(R.id.optGenerar);
         optManual.setOnClickListener( v -> {
             Navigation.findNavController(view).navigate(R.id.cotizationToRegistro);
         });
-        optGenerar.setOnClickListener( v -> {
+        /*optGenerar.setOnClickListener( v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
             builder.setTitle("TOTAL");
             Double totalRedondeado = Math.round((total) * 100.0) / 100.0;
@@ -82,7 +84,7 @@ public class CotizacionFragment extends Fragment {
             builder.setPositiveButton("OK", null);
             AlertDialog dialog = builder.create();
             dialog.show();
-        });
+        });*/
 
         return view;
     }

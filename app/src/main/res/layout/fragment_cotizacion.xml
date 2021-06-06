@@ -71,11 +71,10 @@
 
 
     <!-- This is NOT a root view, but should be a child of whatever root view you choose (CoordinatorLayout, ConstraintLayout, etc) -->
-    <com.nambimobile.widgets.efab.ExpandableFabLayout
+    <!--<com.nambimobile.widgets.efab.ExpandableFabLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- The next 3 Views will only display in portrait orientation -->
         <com.nambimobile.widgets.efab.Overlay
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -95,13 +94,6 @@
             android:layout_height="wrap_content"
             app:fab_orientation="portrait"
             app:label_text="Agregar item"/>
-        <!--<com.nambimobile.widgets.efab.FabOption
-            android:id="@+id/optListado"
-            app:fab_icon="@drawable/ic_find_in_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:fab_orientation="portrait"
-            app:label_text="Item desde listado"/>-->
         <com.nambimobile.widgets.efab.FabOption
             android:id="@+id/optGenerar"
             app:fab_icon="@drawable/ic_assignment"
@@ -110,6 +102,15 @@
             app:fab_orientation="portrait"
             app:label_text="Generar cotización"/>
 
-    </com.nambimobile.widgets.efab.ExpandableFabLayout>
+    </com.nambimobile.widgets.efab.ExpandableFabLayout>-->
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/optManual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
