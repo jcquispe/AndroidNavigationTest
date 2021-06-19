@@ -38,7 +38,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp">
+                android:layout_margin="10dp"
+                app:helperText="Use el correo corporativo"
+                app:endIconMode="clear_text">
 
                 <EditText
                     android:id="@+id/editTextEmail"
@@ -52,7 +54,9 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp">
+                android:layout_margin="10dp"
+                app:helperText="Si olvido la contraseña contacte a soporte"
+                app:endIconMode="password_toggle">
 
                 <EditText
                     android:id="@+id/editTextPass"
@@ -75,6 +79,7 @@
                 android:textColor="@color/blanco"/>
 
             <TextView
+                android:id="@+id/version"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
